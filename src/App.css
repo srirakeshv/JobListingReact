@@ -89,7 +89,7 @@ header .input{
     background-color: white;
     box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.164);
 }
-.main.high .container{
+.high {
     border-left: 3px solid hsl(180, 29%, 50%);
 }
 .container .image{

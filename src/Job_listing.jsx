@@ -8,10 +8,13 @@ const JobListing = () => {
       <header></header>
       <div className="main">
         {JobData.map((job, index) => (
-          <div className="container" key={index}>
+          <div
+            className={`${job.featured ? "high container" : "container"}`}
+            key={index}
+          >
             <div className="image">
               <div className="img">
-                <img></img>
+                <img src={job.logo}></img>
               </div>
               <div class="text">
                 <div className="text-head">
@@ -36,9 +39,13 @@ const JobListing = () => {
               </div>
             </div>
             <div className="content">
-              <p className="hint"></p>
-              <p className="hint"></p>
-              <div className="content-hint"></div>
+              <p className="hint">{job.role}</p>
+              <p className="hint">{job.level}</p>
+              <div className="content-hint">
+                {job.languages.map((ln) => (
+                  <p>{ln}</p>
+                ))}
+              </div>
             </div>
           </div>
         ))}
