@@ -25,32 +25,50 @@ header{
     align-items: center;
 }
 header .input{
+    /* display: none; */
     box-sizing: border-box;
     max-width: 1000px;
     width: 100%;
     padding: 0 20px;
-    margin-bottom: -10%;
-    position: relative;
+    margin-bottom: -120px;
+    /* position: relative; */
 }
-.input input{
+.set{
+    display: flex;
+}
+header .input .input1{
     box-sizing: border-box;
     width: 100%;
-    padding: 15px 20px;
+    padding: 25px ;
     border: 0;
     border-radius: 5px;
+    background-color: white;
     box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.164);
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+}
+header .input .input1 p{
+    padding: 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
+}
+header .input .input1 p{
+    cursor: pointer;
 }
 .input input:focus{
     outline: 0;
 }
-.input p{
+/* .input p{
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 5%;
     color: hsl(180, 29%, 50%);
-}
+} */
 .input .key{
     z-index: 2;
     position: absolute;
@@ -91,6 +109,9 @@ header .input{
 }
 .high {
     border-left: 3px solid hsl(180, 29%, 50%);
+}
+.remove1{
+    display: none;
 }
 .container .image{
     display: flex;
