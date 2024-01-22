@@ -29,22 +29,25 @@ header .input{
     box-sizing: border-box;
     max-width: 1000px;
     width: 100%;
+    min-height: 70px;
     padding: 0 20px;
     margin-bottom: -120px;
     /* position: relative; */
 }
 .set{
-    display: flex;
+    display: flex !important;
+    /* background-color: blue !important; */
 }
 header .input .input1{
+    display: none;
     box-sizing: border-box;
     width: 100%;
     padding: 25px ;
     border: 0;
     border-radius: 5px;
     background-color: white;
-    box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.164);
-    display: flex;
+    /* box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.164); */
+    /* display: flex; */
     /* flex-direction: column; */
     gap: 10px;
 }
@@ -58,9 +61,7 @@ header .input .input1 p{
 header .input .input1 p{
     cursor: pointer;
 }
-.input input:focus{
-    outline: 0;
-}
+
 /* .input p{
     cursor: pointer;
     position: absolute;
@@ -69,19 +70,8 @@ header .input .input1 p{
     right: 5%;
     color: hsl(180, 29%, 50%);
 } */
-.input .key{
-    z-index: 2;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 3%;
-    display: flex;
-    gap: 10px;
-}
-.key p{
-    /* position: relative; */
-    color: brown;
-}
+
+
 /* main */
 .main{
     margin-top: 5%;
@@ -110,8 +100,8 @@ header .input .input1 p{
 .high {
     border-left: 3px solid hsl(180, 29%, 50%);
 }
-.remove1{
-    display: none;
+.removecontainer{
+    display: none !important;
 }
 .container .image{
     display: flex;

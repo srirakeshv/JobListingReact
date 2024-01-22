@@ -3,29 +3,34 @@ import JobData from "./data.json";
 import "./App.css";
 
 const JobListing = () => {
-  const [active, setActive] = useState(false);
   const [selectedRole, setSelectedRole] = useState([]);
+  const [active, setActive] = useState(false);
+
   useEffect(() => {
     console.log("Selected Roles:", selectedRole);
   }, [selectedRole]);
+
   const handleClick = (role) => {
     setActive(true);
+    // selectedRole.length === 0 ? setActive(false) : setActive(true);
     setSelectedRole((prevRole) => [...prevRole, role]);
-    console.log(role, active);
+    console.log(role);
   };
+
   const removeClick = (roleToRemove) => {
     setSelectedRole((prevRole) =>
       prevRole.filter((role) => role !== roleToRemove)
     );
   };
+
   return (
     <div>
       <header>
-        <div className={`input  `}>
-          <div className="input1">
-            {selectedRole.map((role, index) => (
+        <div className={`input`}>
+          <div className={`input1 ${active ? "set" : ""}`}>
+            {selectedRole.map((role) => (
               <p
-                key={index}
+                key={role}
                 onClick={() => {
                   removeClick(role);
                 }}
@@ -37,19 +42,25 @@ const JobListing = () => {
         </div>
       </header>
       <div className="main">
-        {JobData.map((job, index) => (
+        {JobData.map((job) => (
           <div
             className={`${job.featured ? "high container" : "container"} ${
-              selectedRole.length > 0 &&
-              selectedRole.every((role) => job.role.includes(role))
-                ? "remove1"
-                : ""
+              selectedRole.length === 0 ||
+              selectedRole.every((role) => {
+                return (
+                  job.role.includes(role) ||
+                  job.level.includes(role) ||
+                  job.languages.includes(role)
+                );
+              })
+                ? ""
+                : "removecontainer"
             }`}
-            key={index}
+            key={job.id}
           >
             <div className="image">
               <div className="img">
-                <img src={job.logo}></img>
+                <img src={job.logo} alt="logo"></img>
               </div>
               <div className="text">
                 <div className="text-head">
@@ -58,10 +69,7 @@ const JobListing = () => {
                     <p className={`${job.new ? "title1" : ""}`}>NEW!</p>
                   )}
                   {job.featured && (
-                    <p
-                      className={`${job.featured ? "title2" : ""}`}
-                      key={index}
-                    >
+                    <p className={`${job.featured ? "title2" : ""}`}>
                       FEATURED
                     </p>
                   )}
