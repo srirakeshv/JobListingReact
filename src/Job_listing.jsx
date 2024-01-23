@@ -8,11 +8,11 @@ const JobListing = () => {
 
   useEffect(() => {
     console.log("Selected Roles:", selectedRole);
+    setActive(selectedRole.length > 0);
   }, [selectedRole]);
 
   const handleClick = (role) => {
     setActive(true);
-    // selectedRole.length === 0 ? setActive(false) : setActive(true);
     setSelectedRole((prevRole) => [...prevRole, role]);
     console.log(role);
   };
